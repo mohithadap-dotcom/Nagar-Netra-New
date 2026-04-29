@@ -1,0 +1,262 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════════
+   NAGARNETRA — Design System Tokens
+   ═══════════════════════════════════════════════ */
+
+:root {
+  --bg-primary: #0A0F1E;
+  --bg-secondary: #111827;
+  --bg-card: #1A2235;
+  --accent-amber: #D97706;
+  --accent-blue: #3B82F6;
+  --text-primary: #F9FAFB;
+  --text-secondary: #9CA3AF;
+  --border-color: #1F2937;
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-bg: rgba(26, 34, 53, 0.8);
+}
+
+/* ═══════════════════════════════════════════════
+   BASE STYLES
+   ═══════════════════════════════════════════════ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ═══════════════════════════════════════════════
+   SCROLLBAR
+   ═══════════════════════════════════════════════ */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #374151;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4B5563;
+}
+
+/* ═══════════════════════════════════════════════
+   GLASS MORPHISM
+   ═══════════════════════════════════════════════ */
+
+@layer components {
+  .glass-card {
+    @apply relative overflow-hidden rounded-xl border border-white/[0.08] bg-navy-50/80 backdrop-blur-md;
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300 ease-out;
+  }
+
+  .glass-card-hover:hover {
+    @apply border-white/[0.15] scale-[1.02];
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  /* ═══════════════════════════════════════════════
+     BUTTONS
+     ═══════════════════════════════════════════════ */
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-accent-amber px-6 py-3 font-sora font-semibold text-white transition-all duration-200;
+  }
+
+  .btn-primary:hover {
+    @apply bg-accent-amber-light;
+    box-shadow: 0 0 20px rgba(217, 119, 6, 0.3);
+  }
+
+  .btn-primary:active {
+    @apply scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-accent-amber/50 px-6 py-3 font-sora font-semibold text-accent-amber transition-all duration-200;
+  }
+
+  .btn-secondary:hover {
+    @apply border-accent-amber bg-accent-amber/10;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 font-inter text-sm text-gray-400 transition-all duration-200;
+  }
+
+  .btn-ghost:hover {
+    @apply bg-white/5 text-white;
+  }
+
+  /* ═══════════════════════════════════════════════
+     SEVERITY BADGES
+     ═══════════════════════════════════════════════ */
+
+  .badge-l1 {
+    @apply inline-flex items-center gap-1.5 rounded-full bg-yellow-500/15 px-3 py-1 text-xs font-semibold text-yellow-400 ring-1 ring-yellow-500/30;
+  }
+
+  .badge-l2 {
+    @apply inline-flex items-center gap-1.5 rounded-full bg-orange-500/15 px-3 py-1 text-xs font-semibold text-orange-400 ring-1 ring-orange-500/30;
+  }
+
+  .badge-l3 {
+    @apply inline-flex items-center gap-1.5 rounded-full bg-red-500/15 px-3 py-1 text-xs font-semibold text-red-400 ring-1 ring-red-500/30;
+  }
+
+  /* ═══════════════════════════════════════════════
+     STATUS BADGES
+     ═══════════════════════════════════════════════ */
+
+  .badge-reported {
+    @apply inline-flex items-center gap-1.5 rounded-full bg-orange-500/15 px-3 py-1 text-xs font-semibold text-orange-400;
+  }
+
+  .badge-acknowledged {
+    @apply inline-flex items-center gap-1.5 rounded-full bg-blue-500/15 px-3 py-1 text-xs font-semibold text-blue-400;
+  }
+
+  .badge-in_progress {
+    @apply inline-flex items-center gap-1.5 rounded-full bg-purple-500/15 px-3 py-1 text-xs font-semibold text-purple-400;
+  }
+
+  .badge-completed {
+    @apply inline-flex items-center gap-1.5 rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-semibold text-emerald-400;
+  }
+
+  .badge-verified {
+    @apply inline-flex items-center gap-1.5 rounded-full bg-teal-500/15 px-3 py-1 text-xs font-semibold text-teal-400;
+  }
+
+  /* ═══════════════════════════════════════════════
+     FORM INPUTS
+     ═══════════════════════════════════════════════ */
+
+  .input-field {
+    @apply w-full rounded-lg border border-white/10 bg-navy/80 px-4 py-3 font-inter text-sm text-white placeholder-gray-500 outline-none transition-all duration-200;
+  }
+
+  .input-field:focus {
+    @apply border-accent-amber/50 ring-1 ring-accent-amber/20;
+  }
+
+  /* ═══════════════════════════════════════════════
+     ANIMATED GRID BACKGROUND (LANDING)
+     ═══════════════════════════════════════════════ */
+
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: gridMove 20s linear infinite;
+  }
+
+  @keyframes gridMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 60px 60px; }
+  }
+
+  /* ═══════════════════════════════════════════════
+     MAP MARKER PULSE
+     ═══════════════════════════════════════════════ */
+
+  .marker-pulse {
+    position: relative;
+  }
+
+  .marker-pulse::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: inherit;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    animation: markerPulse 2s ease-out infinite;
+  }
+
+  @keyframes markerPulse {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+    100% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
+  }
+
+  /* ═══════════════════════════════════════════════
+     SHIMMER LOADING
+     ═══════════════════════════════════════════════ */
+
+  .shimmer {
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.05) 50%, transparent 100%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite linear;
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   LEAFLET OVERRIDES
+   ═══════════════════════════════════════════════ */
+
+.leaflet-container {
+  background: var(--bg-primary) !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5) !important;
+}
+
+.leaflet-popup-tip {
+  background: var(--bg-card) !important;
+}
+
+.leaflet-popup-close-button {
+  color: var(--text-secondary) !important;
+}
+
+.leaflet-control-zoom a {
+  background: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--glass-border) !important;
+}
+
+/* ═══════════════════════════════════════════════
+   RECHARTS OVERRIDES
+   ═══════════════════════════════════════════════ */
+
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: rgba(255, 255, 255, 0.05) !important;
+}
+
+.recharts-text {
+  fill: var(--text-secondary) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 12px !important;
+}
