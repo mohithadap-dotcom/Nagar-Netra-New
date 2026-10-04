@@ -29,8 +29,8 @@ load_dotenv(".env.local")
 # ─────────────────────────────────────────────
 #  Configuring Gemini
 # ─────────────────────────────────────────────
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "AIzaSyAFmAHaL1v1Xa0-a785ILCHaYNxKKxXINc")
-gemini_client = genai.Client(api_key=GEMINI_API_KEY)
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+gemini_client = genai.Client(api_key=GEMINI_API_KEY) if GEMINI_API_KEY else None
 
 
 # ─────────────────────────────────────────────
