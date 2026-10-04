@@ -15,7 +15,7 @@ NagarNetra turns a road-damage photo into structured evidence, a severity assess
 [![Supabase](https://img.shields.io/badge/Supabase-ready-3FCF8E?logo=supabase&logoColor=white)](https://supabase.com/)
 [![Leaflet](https://img.shields.io/badge/Leaflet-map-199900?logo=leaflet&logoColor=white)](https://leafletjs.com/)
 
-[Overview](#what-it-does) · [Workflow](#how-it-works) · [Features](#features) · [Architecture](#architecture) · [Setup](#run-locally) · [API](#api-reference)
+[Overview](#what-it-does) · [Workflow](#how-it-works) · [Features](#features) · [Architecture](#architecture) · [Setup](#run-locally)
 
 </div>
 
@@ -242,38 +242,6 @@ uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 
 The first launch may download the YOLOv8 model weights. Visit [http://localhost:8000/docs](http://localhost:8000/docs) for interactive API documentation.
-
-## API reference
-
-### Next.js route handlers
-
-| Method | Endpoint | Purpose |
-| --- | --- | --- |
-| `POST` | `/api/detect` | Analyze a base64 road image with Gemini Vision |
-| `POST` | `/api/generate-complaint` | Generate an RTI-style complaint |
-| `POST` | `/api/verify-repair` | Analyze an after-repair image with Roboflow or fallback data |
-| `GET` | `/api/potholes` | Return GeoJSON; accepts `ward`, `severity`, and `status` filters |
-| `GET` | `/api/stats` | Return dashboard aggregates and 30-day trend data |
-
-Example image-analysis request:
-
-```bash
-curl -X POST http://localhost:3000/api/detect \
-  -H "Content-Type: application/json" \
-  -d '{"image":"BASE64_IMAGE_DATA"}'
-```
-
-### FastAPI service
-
-| Method | Endpoint | Purpose |
-| --- | --- | --- |
-| `GET` | `/health` | Service and model status |
-| `POST` | `/detect` | YOLOv8 pothole detection using multipart image and evidence metadata |
-| `GET` | `/chat` | Built-in civic-assistant interface |
-| `POST` | `/api/chat` | Citizen or government assistant conversation |
-| `POST` | `/api/chat/verify` | Gemini-based image authenticity assessment |
-| `POST` | `/api/chat/rti` | Formal RTI letter generation |
-| `POST` | `/api/chat/cost` | Rule-based repair-cost estimate |
 
 ## Project structure
 
